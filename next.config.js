@@ -8,13 +8,16 @@ const {
 module.exports = (phase, { defaultConfig }) => {
   console.log(phase);
   const url = "/fbclone";
-
+  const Img = {
+    domains: ["res.cloudinary.com",],
+  }
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
       reactStrictMode: true,
       env: {
         PREFIX: "",
       },
+      images: Img,
     };
   }
 
@@ -25,5 +28,6 @@ module.exports = (phase, { defaultConfig }) => {
     env: {
       PREFIX: `${url}`,
     },
+    images: Img,
   };
 };
